@@ -1,0 +1,38 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+
+
+#
+# Complete the 'changeAds' function below.
+#
+# The function is expected to return an INTEGER.
+# The function accepts INTEGER base10 as parameter.
+#
+
+def changeAds(base10):
+    # Write your code here
+    a=bin(base10).replace("0b", "")
+    s=''
+    for i in a:
+        if(i=='0'):
+            s+='1'
+        else:
+            s+='0'
+    return int(s,2)
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    base10 = int(input().strip())
+
+    result = changeAds(base10)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
